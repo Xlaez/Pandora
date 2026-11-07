@@ -1,0 +1,58 @@
+{
+  "author": "",
+  "dependencies": {
+    "@dolphjs/dolph": "^3.0.0",
+    "@fastify/middie": "^9.3.6",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "dotenv": "^18.0.9",
+    "fastify": "^5.12.8",
+    "ioredis": "^5.11.1",
+    "joi": "^18.3.2",
+    "pg": "^8.11.3",
+    "reflect-metadata": "^0.2.2",
+    "socket.io": "^4.8.4",
+    "typeorm": "^1.1.0"
+  },
+  "devDependencies": {
+    "@dolphjs/testing": "^2.0.0",
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.3.91",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.8.2",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.3",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.8",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24.11.0"
+  },
+  "license": "MIT",
+  "main": "app/server.js",
+  "name": "explo",
+  "pnpm": {
+    "minimumReleaseAgeExclude": [
+      "@dolphjs/*"
+    ]
+  },
+  "scripts": {
+    "build": "dolph build",
+    "build:tsc": "tsc && tsc-alias",
+    "build:client": "pnpm --dir client build",
+    "build:all": "pnpm build:tsc && pnpm --dir client build",
+    "clean": "rm -r app && rm -r logs",
+    "dev:docker:start": "docker-compose -f docker-compose-dev.yml up",
+    "dev:docker:stop": "docker-compose -f docker-compose-dev.yml down",
+    "dev:start": "dolph watch",
+    "dev:client": "pnpm --dir client dev",
+    "start": "dolph start",
+    "test": "jest"
+  },
+  "version": "1.0.0"
+}

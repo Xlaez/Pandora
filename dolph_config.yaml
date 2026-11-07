@@ -1,0 +1,24 @@
+port: 3300
+env: development
+jsonLimit: 2mb
+adapter: fastify
+routing:
+  base: '/v1'
+middlewares:
+  helmet: true
+  cors:
+    activate: true
+    origin: '*'
+database:
+  typeorm:
+    options:
+      type: postgres
+      host: sensitive
+      port: 5432
+      username: sensitive
+      password: sensitive
+      database: pandora_db
+      synchronize: true
+      logging: false
+      entities:
+        - app/**/*.entity.js
